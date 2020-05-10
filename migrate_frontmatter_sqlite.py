@@ -25,7 +25,7 @@ for filename in onlyfiles:
         content = post.content
         so = date_name_separator.search(filename)
         date_created = so.group(1)
-        filename = so.group(2)
+        filename = so.group(2)[:-5]
 
 
         c.execute("""
@@ -49,7 +49,6 @@ for filename in onlyfiles:
                     tag_id = c.lastrowid
 
                 else:
-                    print(tag_check)
                     tag_id = tag_check[0]
 
                 c.execute("""
